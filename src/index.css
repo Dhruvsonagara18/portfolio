@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0f1418;
+  --color-foreground: #f0f2f5;
+
+  --color-card: #141a1f;
+
+  --color-primary: #20b2a6;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #1f2830;
+  --color-secondary-foreground: #20b2a6;
+
+  --color-muted: #252e37;
+  --color-muted-foreground: #7a8491;
+
+  --color-border: #242b32;
+
+  --color-highlight: #f5a623;
+  --color-surface: #1a2329;
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+  }
+
+  .font-serif {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(26, 35, 41, 0.5);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-strong {
+    background: rgba(26, 35, 41, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+@layer utilities {
+
+  /* ==========================
+     Fade In Animation
+  ========================== */
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.7s ease-out both;
+  }
+
+  /* ==========================
+     Floating Particles
+  ========================== */
+
+  @keyframes slow-drift {
+    0%,
+    100% {
+      transform: translate(0px, 0px);
+    }
+
+    25% {
+      transform: translate(20px, -30px);
+    }
+
+    50% {
+      transform: translate(-15px, -20px);
+    }
+
+    75% {
+      transform: translate(30px, 10px);
+    }
+  }
+
+  .animate-slow-drift {
+    animation: slow-drift 15s ease-in-out infinite;
+  }
+
+  /* ==========================
+     Floating Badge
+  ========================== */
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* ==========================
+     Marquee Skills
+  ========================== */
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+    width: max-content;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* ==========================
+     Download Button Border
+  ========================== */
+
+  @keyframes animated-border {
+    0% {
+      stroke-dashoffset: 400;
+    }
+
+    100% {
+      stroke-dashoffset: -550;
+    }
+  }
+
+  .group:hover .animated-border-path {
+    animation: animated-border 1.5s linear infinite;
+  }
+
+  .animated-border:hover {
+    background-color: rgba(32, 178, 166, 0.15);
+
+    box-shadow:
+      0 0 10px rgba(32, 178, 166, 0.2),
+      0 0 20px rgba(32, 178, 166, 0.3),
+      0 0 30px rgba(32, 178, 166, 0.4);
+
+    transform: translateY(-2px);
+  }
+
+  /* ==========================
+     Text Glow
+  ========================== */
+
+  .glow-text {
+    text-shadow:
+      0 0 10px rgba(32, 178, 166, 0.6),
+      0 0 20px rgba(32, 178, 166, 0.4),
+      0 0 30px rgba(32, 178, 166, 0.2);
+  }
+
+  /* ==========================
+     Profile Glow
+  ========================== */
+
+  .glow-border {
+    box-shadow:
+      0 0 20px rgba(32, 178, 166, 0.15),
+      0 0 40px rgba(32, 178, 166, 0.1),
+      0 0 60px rgba(32, 178, 166, 0.05);
+  }
+
+  .profile-glow {
+    box-shadow:
+      0 0 20px rgba(32, 178, 166, 0.15),
+      0 0 40px rgba(32, 178, 166, 0.1);
+  }
+
+  /* ==========================
+     Timeline Glow
+  ========================== */
+
+  .timeline-glow {
+    box-shadow:
+      0 0 40px rgba(32, 178, 166, 0.35),
+      0 0 80px rgba(32, 178, 166, 0.2);
+  }
+
+  /* ==========================
+     Animation Delays
+  ========================== */
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+
+  /* ==========================
+     Utility Colors
+  ========================== */
+
+  .text-primary {
+    color: var(--color-primary);
+  }
+
+  .text-muted-foreground {
+    color: var(--color-muted-foreground);
+  }
+
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+
+  .border-primary {
+    border-color: var(--color-primary);
+  }
+}
