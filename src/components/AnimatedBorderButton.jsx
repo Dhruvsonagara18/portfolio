@@ -4,7 +4,9 @@ export const AnimatedBorderButton = () => {
   return (
     <a
       href="/Dhruv_Sonagara_CV.pdf"
-      download
+      download="Dhruv_Sonagara_CV.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
       className="
         relative
         bg-transparent
